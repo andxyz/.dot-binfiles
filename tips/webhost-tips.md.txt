@@ -1,0 +1,13 @@
+
+## domain names
+
+- http://netfirms.ca 10/year = good. same as godaddy
+- https://www.namecheap.com/
+
+
+## hosting?
+
+- http://www.digitalocean.com
+- http://www.linode.com/
+- http://www.rackspace.com/ (http://www.slicehost.com/ rackspace bought them)
+

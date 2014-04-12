@@ -1,0 +1,15 @@
+
+git rebase -i HEAD~4
+git rebase -i
+git rebase --abort
+
+git stash "description"
+git stash apply
+
+git gc
+
+git branch -l
+
+git checkout dev
+
+

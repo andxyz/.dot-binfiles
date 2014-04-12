@@ -1,0 +1,8 @@
+port -v selfupdate #update macports itself to the latest definitions
+port -v outdated # see what's outdated
+port -v upgrade outdated # upgrade what's outdated
+port -v uninstall htop
+port clean -f --all "*"
+
+
+sudo port uninstall --follow-dependents 

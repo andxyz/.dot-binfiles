@@ -1,0 +1,26 @@
+execsnoop
+Look for many processes being executed quickly, as many short lived processes add considerable overhead.
+iosnoop
+Watch what is happening on the disks for any unexpected activity. Check who is using the disks and the size of the disk events.
+opensnoop
+Run opensnoop, learn lots. It is amazing what interesting problems opensnoop has unearthed. Many things are files (config files, data files, device files, libraries), and watching the open events provides a useful insight on what is really happening.
+errinfo
+Perhaps you have a performance issue due to an application "silently failing". errinfo will show which app is experiencing what type of syscall failure, and the frequency. Of course, the app may take these errors into account - and there may be no problem. Best to check anyway.
+procsystime
+This will show elapsed time, on-CPU time and counts for system calls. Very useful, and either -p PID or -n execname can be used to narrow examination to your target application only.
+iotop
+If disk events occured too quickly, iotop can provide a rolling summary.
+rwtop
+Rather than looking at the disk event level (iosnoop, iotop), rwtop examines at the syscall layer. This is application I/O. Much of this may be to the file system cache, some may make it to disk, and some may be for IPC.
+Disk/iopattern
+There are several scripts in the Disk directory for further analysis. iopattern provides several useful metrics for understanding disk access behaviour.
+
+If you have the DTraceToolkit on a misbehaving server and you don't know where to start, the following list of tools will provide the most valuable info in the shortest time:
+	1.	./execsnoop -v
+	2.	./iosnoop
+	3.	./opensnoop -e
+	4.	./errinfo -c
+	5.	./procsystime -aT
+	6.	./iotop -PCt8
+	7.	./rwtop -Ct8
+	8.	./Disk/iopattern 1

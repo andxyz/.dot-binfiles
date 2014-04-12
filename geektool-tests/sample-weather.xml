@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+		<rss version="2.0" xmlns:yweather="http://xml.weather.yahoo.com/ns/rss/1.0" xmlns:geo="http://www.w3.org/2003/01/geo/wgs84_pos#">
+			<channel>
+		
+<title>Yahoo! Weather - Brampton, CA</title>
+<link>http://us.rd.yahoo.com/dailynews/rss/weather/Brampton__CA/*http://weather.yahoo.com/forecast/CAXX0043_c.html</link>
+<description>Yahoo! Weather for Brampton, CA</description>
+<language>en-us</language>
+<lastBuildDate>Mon, 02 May 2011 9:59 pm EDT</lastBuildDate>
+<ttl>60</ttl>
+<yweather:location city="Brampton" region=""   country="CA"/>
+<yweather:units temperature="C" distance="km" pressure="mb" speed="km/h"/>
+<yweather:wind chill="5"   direction="360"   speed="19.31" />
+<yweather:atmosphere humidity="62"  visibility=""  pressure="1023.3"  rising="1" />
+<yweather:astronomy sunrise="6:08 am"   sunset="8:19 pm"/>
+<image>
+<title>Yahoo! Weather</title>
+<width>142</width>
+<height>18</height>
+<link>http://weather.yahoo.com</link>
+<url>http://l.yimg.com/a/i/brand/purplelogo//uh/us/news-wea.gif</url>
+</image>
+<item>
+<title>Conditions for Brampton, CA at 9:59 pm EDT</title>
+<geo:lat>43.68</geo:lat>
+<geo:long>-79.77</geo:long>
+<link>http://us.rd.yahoo.com/dailynews/rss/weather/Brampton__CA/*http://weather.yahoo.com/forecast/CAXX0043_c.html</link>
+<pubDate>Mon, 02 May 2011 9:59 pm EDT</pubDate>
+<yweather:condition  text="Cloudy"  code="26"  temp="8"  date="Mon, 02 May 2011 9:59 pm EDT" />
+<description><![CDATA[
+<img src="http://l.yimg.com/a/i/us/we/52/26.gif"/><br />
+<b>Current Conditions:</b><br />
+Cloudy, 8 C<BR />
+<BR /><b>Forecast:</b><BR />
+Mon - Showers. High: 11 Low: 5<br />
+Tue - Rain. High: 7 Low: 4<br />
+<br />
+<a href="http://us.rd.yahoo.com/dailynews/rss/weather/Brampton__CA/*http://weather.yahoo.com/forecast/CAXX0043_c.html">Full Forecast at Yahoo! Weather</a><BR/><BR/>
+(provided by <a href="http://www.weather.com" >The Weather Channel</a>)<br/>
+]]></description>
+<yweather:forecast day="Mon" date="2 May 2011" low="5" high="11" text="Showers" code="11" />
+<yweather:forecast day="Tue" date="3 May 2011" low="4" high="7" text="Rain" code="12" />
+<guid isPermaLink="false">CAXX0043_2011_05_02_21_59_EDT</guid>
+</item>
+</channel>
+</rss>
+<!-- api5.weather.ac4.yahoo.com uncompressed/chunked Mon May  2 19:20:36 PDT 2011 -->

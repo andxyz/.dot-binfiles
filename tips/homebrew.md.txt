@@ -1,0 +1,45 @@
+# homebrew tips
+
+```bash
+brew help
+```
+
+## brew installing
+```bash
+brew list
+brew search htop
+brew install htop
+```
+
+## brew maintenance
+```bash
+brew update
+brew outdated
+brew upgrade `brew outdated`
+brew cleanup
+```
+
+
+
+```bash
+brew install coreutils
+```
+
+```
+brew info coreutils
+```
+
+All commands have been installed with the prefix 'g'.
+
+A file that aliases these commands to their normal names is available
+and may be used in your bashrc like:
+
+    source /usr/local/Cellar/coreutils/8.12/aliases
+
+But note that sourcing these aliases will cause them to be used instead
+of Bash built-in commands, which may cause problems in shell scripts.
+The Bash "printf" built-in behaves differently than gprintf, for instance,
+which is known to cause problems with "bash-completion".
+
+The man pages are still referenced with the g-prefix.
+

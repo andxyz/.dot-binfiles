@@ -1,0 +1,32 @@
+curl --silent "http://weather.yahoo.com/forec..." | grep "forecast-icon" | sed "s/.*background\:url(\'\(.*\)\')\;\ _background.*/\1/" | xargs curl --silent -o /weather.png 
+
+
+
+curl --silent "http://xml.weather.yahoo.com/forecastrss?p=YOURCITYCODE&u=c" | grep -E '(Current Conditions:|C<BR)' | sed -e 's/Current Conditions://' -e 's/<br \/>//' -e 's/<b>//' -e 's/<\/b>//' -e 's/<BR \/>//' -e 's/<description>//' -e 's/<\/description>//'
+
+
+
+curl --silent "http://weather.yahooapis.com/forecastrss?p=CAXX0043&u=c" | grep -E '(Current Conditions:|C<BR)' | sed -e 's/Current Conditions://' -e 's/<br \/>//' -e 's/<b>//' -e 's/<\/b>//' -e 's/<BR \/>//' -e 's/<description>//' -e 's/<\/description>//'
+
+
+
+http://weather.yahoo.com/canada/ontario/brampton-4431/?unit=c
+http://weather.yahooapis.com/forecastrss?p=CAXX0043&u=c
+
+curl --silent "http://weather.yahooapis.com/forecastrss?p=CAXX0043&u=c" | grep -E '(Current Conditions:|F<BR)' | sed -e 's/Current Conditions://' -e 's/<br \/>//' -e 's/<b>//' -e 's/<\/b>//' -e 's/<BR \/>//' -e 's///' -e 's/<\/description>//'
+
+
+#sed multi line, didn't use
+http://codesnippets.joyent.com/posts/show/2111
+
+cat sample.xml | tr '\n' ' ' | grep -o 'Current Conditions:.*Forecast:' | sed 's/Current Conditions://' | sed 's/Forecast://' | gsed 's|<[bBR/ ]*>||Ig' | sed 's/^ *//;s/ *$//'
+
+curl --silent "http://weather.yahooapis.com/forecastrss?p=CAXX0043&u=c" | tr '\n' ' ' | grep -o 'Current Conditions:.*Forecast:' | sed 's/Current Conditions://' | sed 's/Forecast://' | gsed 's|<[bBR/ ]*>||Ig' | sed 's/^ *//;s/ *$//'
+
+
+
+#image time
+curl --silent "http://weather.yahoo.com/canada/ontario/brampton-4431/?unit=c" | grep "forecast-icon" | sed "s/.*background\:url(\'\(.*\)\')\;\ _background.*/\1/" | xargs curl --silent -o ~/bin/geektool/weather.png 
+
+
+

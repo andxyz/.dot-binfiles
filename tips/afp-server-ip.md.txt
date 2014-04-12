@@ -1,0 +1,19 @@
+# Find server
+
+~$ dns-sd -B _afpovertcp._tcp local             
+Browsing for _afpovertcp._tcp.local
+DATE: ---Mon 23 Sep 2013---
+11:06:28.939  ...STARTING...
+Timestamp     A/R Flags if Domain                    Service Type              Instance Name
+11:06:28.940  Add     3  4 local.                    _afpovertcp._tcp.         Pilot Server
+11:06:28.940  Add     2  4 local.                    _afpovertcp._tcp.         ddibiase-pro
+^C
+~$ dns-sd -G v4 pilot-server.local 
+DATE: ---Mon 23 Sep 2013---
+11:06:37.130  ...STARTING...
+Timestamp     A/R Flags if Hostname                  Address                                      TTL
+11:06:37.131  Add     2  4 Pilot-Server.local.       192.168.1.121                                120
+^C
+
+
+192.168.1.121
