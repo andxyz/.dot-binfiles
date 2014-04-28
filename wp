@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+/Applications/MAMP/bin/php/php5.4.10/bin/php $HOME/bin/wp-cli.phar $@
