@@ -4,4 +4,4 @@ set -e
 # it gets your ip
 # thanks to [Major Hayden](https://github.com/rackerhacker/icanhaz/blob/master/icanhaz.py)
 
-curl -s icanhazip.com
+curl --silent icanhazip.com

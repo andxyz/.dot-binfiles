@@ -1,0 +1,5 @@
+#!/bin/bash
+
+set -e
+
+rubocop -c .rubocop.yml --force-exclusion `git diff master --name-only | grep .rb | grep -v _spec`

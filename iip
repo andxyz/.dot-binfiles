@@ -1,6 +1,13 @@
-#!/bin/bash
+#!/usr/bin/env bash
+# it shows your local ip addresses
 set -e
 
-# it gets your local ip
+networksetup -listallhardwareports
 
-addr
+echo "en0: `ipconfig getifaddr en0`"
+echo "en1: `ipconfig getifaddr en1`"
+echo "en2: `ipconfig getifaddr en2`"
+echo "en3: `ipconfig getifaddr en3`"
+echo "vboxnet0: `ipconfig getifaddr vboxnet0`"
+echo "vboxnet1: `ipconfig getifaddr vboxnet1`"
+echo "vboxnet2: `ipconfig getifaddr vboxnet2`"

@@ -3,4 +3,4 @@ set -e
 
 # it gets your local ip
 
-addr
+iip
