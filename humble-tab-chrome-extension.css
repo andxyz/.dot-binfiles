@@ -1,0 +1,21 @@
+#main a { font-family: "Menlo"; }
+#main a { font-size: 1.8em; }
+#main a { color: #fcfc86; }
+body { background-color: #101827; }
+#main a:hover { background-color: #000000; }
+#main a:hover { color: #fffbcf; }
+#main a:hover { box-shadow: 0 0 7px #fff487; }
+body { background-image: url(); }
+body { background-image: url(); }
+body { background-position: left top; }
+body { background-repeat: repeat; }
+body { background-size: auto; }
+#main a:hover { box-shadow: 0 0 7px #fff487; }
+#main a { border-radius: 0.21300000000000002em; }
+#main a { -webkit-transition-duration: 0.2s; }
+#main a { line-height: 3.2384000000000004; padding-left: 1.2128em; padding-right: 1.2128em; }
+#main { width: 50.6%; }
+#main { left: -0.9139000000000017%; }
+#main { margin-top: 5%; }
+.wrap { -webkit-transition-duration: 0.2s; }
+#options_button { opacity: 0; }
