@@ -1,3 +1,3 @@
 #!/bin/bash
 
-echo -en '*\u0001' | pbcopy
+echo -en '*\u0000' | pbcopy
