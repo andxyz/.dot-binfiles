@@ -2,14 +2,16 @@
 #
 ### # shows the description and options for a bash builtin
 ###
-### If we were looking for the options to the `jobs` builtin
+### Say we were looking for the options to the `jobs` builtin
 ###
 ### ```
 ### man_builtins.sh jobs
 ### man_builtins.sh ulimit
 ### ```
 ###
-### please see: shellhatershandbook.org
+### because `man ulimit` is terrible
+###
+### please see: http://shellhaters.org/
 ###
 
 # DEBUG_SHELL='set -x;'
@@ -44,18 +46,15 @@ end
 
 puts \
 """
-
-Searching: #{needle}
+searching :: #{needle}
 """
 
 results.each do |result|
   puts \
 """
+found_at :: #{result.fetch(:filename)}
 
-Found at:
-#{result.fetch(:filename)}
-
-Description:
+description ::
 #{result.fetch(:description)}
 """
 end
