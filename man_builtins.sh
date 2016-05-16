@@ -14,10 +14,12 @@
 ### please see: http://shellhaters.org/
 ###
 
+require 'bundler'
 require 'bundler/inline'
+# require 'bundler/ui/silent'
 
-# https://github.com/bundler/bundler/blob/1-10-stable/lib/bundler/inline.rb
-gemfile(install: true) do
+# https://github.com/bundler/bundler/blob/d23c26442a0e4caec73b5f85c21fc4738c7bc19f/lib/bundler/inline.rb
+gemfile(install: true, options: { ui: Bundler::UI::Silent.new }) do
   source 'https://rubygems.org'
   # ruby libs
   require 'logger'
