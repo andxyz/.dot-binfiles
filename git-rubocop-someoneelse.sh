@@ -4,9 +4,12 @@ require 'english'
 require 'rubocop'
 
 VALID_FILE_EXT = %w(.rb .rabl .rake)
+FILENAME_EXCLUDES = %w(schema.rb _spec.rb)
 ADDED_OR_MODIFIED = /^\s*(A|AM|M)/.freeze
 
 class NotInRepository < StandardError; end
+
+rubocop_config_file = File.exist?('.rubocop.yml') ? '.rubocop.yml' : '.hound.yml'
 
 def get_repository(path = Dir.pwd)
   ascender = Pathname.new(path).to_enum(:ascend)
@@ -28,8 +31,13 @@ Dir.chdir(get_repository) do
     }.
     select { |file_name|
       VALID_FILE_EXT.include? File.extname(file_name)
+    }.
+    select { |file_name|
+      FILENAME_EXCLUDES.all? do |exclude_pattern|
+        !file_name.include?(exclude_pattern)
+      end
     }.join(' ')
-  system("set -x; rubocop --config .rubocop.yml #{changed_files}; set +x") unless changed_files.empty?
+  system("set -x; rubocop --display-cop-names --config #{rubocop_config_file} #{changed_files}; set +x") unless changed_files.empty?
 end
 
 exit $CHILD_STATUS.to_s[-1].to_i
