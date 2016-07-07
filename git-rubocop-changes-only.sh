@@ -5,7 +5,6 @@ require 'rubocop'
 
 VALID_FILE_EXT = %w(.rb .rabl .rake)
 FILENAME_EXCLUDES = %w(schema.rb _spec.rb)
-ADDED_OR_MODIFIED = /^\s*(A|AM|M)/.freeze
 
 class NotInRepository < StandardError; end
 
@@ -22,13 +21,7 @@ rescue NotInRepository
 end
 
 Dir.chdir(get_repository) do
-  changed_files = `git status --porcelain`.split(/\n/).
-    select { |file_name_with_status|
-      file_name_with_status =~ ADDED_OR_MODIFIED
-    }.
-    map { |file_name_with_status|
-      file_name_with_status.split(' ')[1]
-    }.
+  changed_files = `git diff --diff-filter AM --name-only`.split(/\n/).
     select { |file_name|
       VALID_FILE_EXT.include? File.extname(file_name)
     }.
