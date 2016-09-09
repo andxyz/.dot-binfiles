@@ -4,7 +4,7 @@
 ###
 ### Say we were looking for the options to the `jobs` builtin
 ###
-### ```
+### ```shell
 ### man_builtins.sh jobs
 ### man_builtins.sh ulimit
 ### ```
@@ -12,6 +12,20 @@
 ### because `man ulimit` is terrible
 ###
 ### please see: http://shellhaters.org/
+###
+### on bash
+###
+### ```shell
+### help fc
+### ```
+###
+### on zsh
+###
+### ```shell
+### man zshbuiltins
+### man zshall
+### man zshzle
+### ```
 ###
 
 ### some odd snippets
