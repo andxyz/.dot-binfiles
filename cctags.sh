@@ -3,12 +3,13 @@
 set -x
 set -e
 
-ctags_gem_home=`gem environment gemdir`
-ctags_ruby_stdlib="$(rbenv prefix)/lib/ruby/$(basename "${ctags_gem_home}")"
-ctags_gem_sources=`bundle list --paths`
+CTAGS_GEM_HOME=`rbenv exec gem environment gemdir`
+CTAGS_RBENV_PREFIX=`rbenv prefix`
+CTAGS_RUBY_BASENAME=`basename "${CTAGS_GEM_HOME}"`
+CTAGS_RUBY_STDLIB="${CTAGS_RBENV_PREFIX}/lib/ruby/${CTAGS_RUBY_BASENAME}"
 
 if [[ $? -ne 0 ]]; then
   exit 1
 fi
 
-ctags -R --languages=ruby --exclude=.git --exclude=log . "${ctags_ruby_stdlib}" ${ctags_gem_sources}
+/usr/local/bin/ctags -R --languages=ruby --exclude=.git --exclude=log .  "${CTAGS_RUBY_STDLIB}" $(rbenv exec bundle list --paths)
