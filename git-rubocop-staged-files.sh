@@ -2,12 +2,12 @@
 # ideas from https://gist.github.com/mpeteuil/6147292
 require 'rubocop'
 
-VALID_FILE_EXT = %w(.rb .rabl .rake)
-FILENAME_EXCLUDES = %w(schema.rb _spec.rb)
+VALID_FILE_EXT = %w( .rb .rabl .rake )
+FILENAME_EXCLUDES = %w( schema.rb _spec.rb )
 
 rubocop_config_file = File.exist?('.rubocop.yml') ? '.rubocop.yml' : '.hound.yml'
 
-interesting_files = `git diff --cached --diff-filter AM --name-only`.split(/\n/).
+interesting_files = %x{ git diff --cached --diff-filter AM --name-only }.split(/\n/).
   select { |file_name|
     VALID_FILE_EXT.include? File.extname(file_name)
   }.
