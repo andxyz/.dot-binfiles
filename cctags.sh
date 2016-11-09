@@ -15,7 +15,7 @@ gitdir="$(/usr/local/bin/git rev-parse --git-dir)"
 trap 'rm -f "$gitdir/$$.tags"' EXIT
 
 git ls-files | \
-/usr/local/bin/ctags --sort=yes -R --tag-relative --languages=+ruby,-javascript,sql --exclude=.git --exclude=log -f"$gitdir/$$.tags" "${CTAGS_RUBY_STDLIB}" $(rbenv exec bundle list --paths)
+`brew --prefix`/bin/ctags --sort=yes -R --tag-relative --languages=+ruby,-javascript,sql --exclude=.git --exclude=log -f"$gitdir/$$.tags" ./ "${CTAGS_RUBY_STDLIB}" $(rbenv exec bundle list --paths)
 
 if [[ $? -ne 0 ]]; then
   exit 1
