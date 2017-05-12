@@ -6,4 +6,9 @@
 ## https://twitter.com/kapeli/status/649852908025040896
 ## But you can search them with the `rubygems:` docset
 
+set -e
+set -x
+
+
+bundle check || bundle install
 bundle list | awk -F'[ ()]+' '$2 == "*" {print "open \"dash-install://repo_name=Ruby%20Docsets&entry_name=" $3 "&version=" $4 "\"";}'
