@@ -28,6 +28,9 @@
 ### ```
 ###
 
+### # good ones
+### jobs -dlp
+
 ### some odd snippets
 # grep -R -i '$FUNCTION' ~/code/_clone/bash
 # bash -x -c 'trap -l'
