@@ -2,6 +2,8 @@
 
 set -e
 
+reset
+
 echo $TERM
 
 seq 2 | xargs -I{} awk 'BEGIN{
