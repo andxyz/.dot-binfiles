@@ -5,5 +5,8 @@
 # prune local
 # git branch --merged | grep -v "\*" | xargs -n 1 git branch --delete
 
-# prune github and local
-git remote prune origin && git branch --merged | grep -v "\*" | grep -v master | xargs -n 1 git branch --delete
+# prune github
+# git remote prune origin
+
+# prune local branches
+git branch --merged | grep -v "\*" | grep -v master | xargs -n 1 git branch --delete
