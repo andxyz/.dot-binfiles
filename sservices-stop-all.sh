@@ -9,13 +9,22 @@
 # ```
 
 set -e
-set -x
+# set -x
 
 test -n $(which lunchy) || exit 0
 
-# start dnsmasq for .dev domains
-echo "starting dnsmasq"
-lunchy start homebrew.mxcl.dnsmasq
+echo ""
+echo "current running services"
+echo ""
+
+lunchy status
+
+echo ""
+echo "stopping stuff"
+echo ""
+
+lunchy stop 'homebrew.mxcl.dnsmasq'
+lunchy stop 'homebrew.mxcl.postgresql@9.5'
 
 echo ""
 echo "current running services"
