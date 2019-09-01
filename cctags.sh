@@ -1,1 +1,1 @@
-/Users/andxyz/.git-template/hooks/ctags
+/Users/andrew/.git-template/hooks/ctags
