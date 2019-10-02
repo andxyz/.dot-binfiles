@@ -1,6 +1,13 @@
 #!/usr/bin/env bash
 #
-for INDEX_I in 1 2 3 4 5 .. 10
+# show me a few corgums
+
+set -e
+# set -x
+
+for INDEX_I in 1 2 3
 do
-  open `curl -s http://corginator.herokuapp.com/random | jq --raw-output '.corgi'`
+  CORG_URL=$(curl -s http://corginator.herokuapp.com/random?cache_bust= | jq --raw-output '.corgi')
+  echo "hello from corg${INDEX_I} at ${CORG_URL}"
+  open -b 'com.google.chrome' "${CORG_URL}"
 done
