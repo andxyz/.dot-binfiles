@@ -1,5 +1,6 @@
 
 # what is my loadpath?
-# http://gilesbowkett.blogspot.ca/2009/06/find-your-ruby-gems-path.html
-ruby -r rubygems -e "p Gem.path"
 
+### http://gilesbowkett.blogspot.ca/2009/06/find-your-ruby-gems-path.html
+
+ruby -r rubygems -e "p Gem.path"

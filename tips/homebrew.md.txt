@@ -2,24 +2,30 @@
 
 ```bash
 brew help
+
+# setup path lookup and
+# setup man page lookup
+# see https://github.com/andxyz/.dotfiles/blob/master/shell/path_envs#L1-L18
 ```
 
 ## brew installing
+
 ```bash
+# see https://github.com/andxyz/.dotfiles/blob/master/brew_install_stuff.sh#L1
+
 brew list
 brew search htop
 brew install htop
 ```
 
 ## brew maintenance
+
 ```bash
 brew update
 brew outdated
 brew upgrade `brew outdated`
 brew cleanup
 ```
-
-
 
 ```bash
 brew install coreutils
@@ -29,6 +35,7 @@ brew install coreutils
 brew info coreutils
 ```
 
+```plaintext
 All commands have been installed with the prefix 'g'.
 
 A file that aliases these commands to their normal names is available
@@ -42,4 +49,4 @@ The Bash "printf" built-in behaves differently than gprintf, for instance,
 which is known to cause problems with "bash-completion".
 
 The man pages are still referenced with the g-prefix.
-
+```
