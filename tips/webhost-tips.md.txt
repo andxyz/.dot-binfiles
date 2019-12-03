@@ -1,13 +1,17 @@
 
 ## domain names
 
-- http://netfirms.ca 10/year = good. same as godaddy
-- https://www.namecheap.com/
+TL;DR
 
+- NameCheap https://www.namecheap.com/
+- Google Domains https://domains.google.com/registrar
+- https://netfirms.ca 10/year = good. same price as godaddy
 
 ## hosting?
 
+- put cloudflare infront?
+- cloud run https://github.com/gmarik/starterkit-static_site-cloud-run-nginx-hugo
+- aws middleman, and sync to s3 assets
 - http://www.digitalocean.com
 - http://www.linode.com/
 - http://www.rackspace.com/ (http://www.slicehost.com/ rackspace bought them)
-

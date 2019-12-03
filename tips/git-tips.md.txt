@@ -1,15 +1,28 @@
 
+```shell
 git rebase -i HEAD~4
 git rebase -i
 git rebase --abort
+```
 
+```shell
 git stash "description"
 git stash apply
+```
 
+```shell
 git gc
+```
 
+```shell
 git branch -l
+git branch-list.sh
+```
 
-git checkout dev
+```
+git checkout -b production origin/production
+```
 
-
+```shell
+git rev-list HEAD...HEAD~100 | xargs -I{} git grep -h can_see_ssns {} | cut -f2- -d':' | gsort | guniq | ghead -n100 | bat --language ruby
+```
