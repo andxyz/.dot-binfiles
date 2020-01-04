@@ -1,16 +1,16 @@
 #!/bin/sh
-# Usage: git-thanks <since>..<until>
+# Usage: git-thanks.sh <since>..<until>
 #
 # All commits on master, ever:
-#   git-thanks master
+#   git-thanks.sh master
 #
 # All commits on master since the 0.9.0 tag:
-#   git-thanks 0.9.0..master
+#   git-thanks.sh 0.9.0..master
 
 git log "$1" |
-  grep Author: |
-  sed 's/Author: \(.*\) <.*/\1/' |
-  sort |
-  uniq -c |
-  sort -rn |
-  sed 's/ *\([0-9]\{1,\}\) \(.*\)/\2 (\1)/'
+  ggrep 'Author:' |
+  gsed 's/Author: \(.*\) <.*/\1/' |
+  gsort |
+  guniq -c |
+  gsort -rn |
+  gsed 's/ *\([0-9]\{1,\}\) \(.*\)/\2 (\1)/'
