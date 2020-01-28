@@ -24,5 +24,118 @@ git checkout -b production origin/production
 ```
 
 ```shell
-git rev-list HEAD...HEAD~100 | xargs -I{} git grep -h can_see_ssns {} | cut -f2- -d':' | gsort | guniq | ghead -n100 | bat --language ruby
+git rev-list HEAD...HEAD~100 | xargs -I{} git grep -h is_interesting_bool_true {} | cut -f2- -d':' | gsort | guniq | ghead -n100 | bat --language ruby
+```
+
+```
+git log --all --numstat --pretty="%H" --author="Andrew Stevens" --since=1.year | awk 'NF==3 {plus+=$1; minus+=$2} NF==1 {total++} END {printf("lines added: +%d\nlines deleted: -%d\ntotal commits: %d\n", plus, minus, total)}'
+
+
+lines added: +2676
+lines deleted: -245960
+total commits: 163
+
+```
+
+
+
+
+```
+
+git alias | grep hub
+
+~/bin (andxyz-atlas-machine)
+
+alias.github-pulls !hub browse -- pulls/
+alias.github-mypulls !hub browse -- pulls/andxyz
+alias.github-open-pull-request !hub pull-request
+alias.github-open-pull-request-against-production-branch !hub pull-request -b production
+alias.hub-pulls !git github-pulls
+alias.hub-mypulls !git github-mypulls
+alias.hub-open-pull-request !git github-open-pull-request-against-production-branch
+alias.gopenpr !hub pull-request
+alias.gmypulls !hub browse -- pulls/andxyz
+alias.gpulls !hub browse -- pulls
+
+$ git alias | cat
+alias.p pull
+alias.f fetch --all
+alias.fs fetch origin staging:staging
+alias.fm fetch origin master:master
+alias.fp fetch origin production:production
+alias.fetch-and-prune fetch --all --prune
+alias.b branch-list.sh
+alias.ls ls-files
+alias.ls-ignored !git ls-files -v | grep ^[[:lower:]]
+alias.unstage reset HEAD --
+alias.cmend commit --amend -C HEAD
+alias.wip !gitwip() { git add --all && git commit -m 'wip'; }; gitwip
+alias.un update-index --assume-unchanged
+alias.nun update-index --no-assume-unchanged
+alias.diffc diff --cached
+alias.ddiff !fgitdiff0() { git diff --color $@ | diff-so-fancy | less --tabs=1,5 -R; }; fgitdiff0
+alias.ddiffc !fgitdiff1() { git diff --cached --color $@ | diff-so-fancy | less --tabs=1,5 -R; }; fgitdiff1
+alias.d !fgitdiff1() { git diff --cached --color $@ | diff-so-fancy | less --tabs=1,5 -R; }; fgitdiff1
+alias.llog log --topo-order --graph
+alias.logsecrets !fgitlog1() { git --no-pager log -p --follow --find-copies-harder --find-renames=25% -- $@; }; fgitlog1
+alias.logpretty log --pretty=format:'%Cred[%h]%Creset%Cgreen[%ci]%C(bold blue)[%aN]%Creset%C(yellow)%d%Creset %s'
+alias.logpbasic !git log
+alias.logpnopager !git --no-pager log
+alias.logpatch log --topo-order --decorate=full --no-merges --patch
+alias.logponeline log --topo-order --decorate --abbrev-commit --pretty=format:'%Cred %h %Creset%Cgreen[%ai]%C(bold blue)[%aN]%Creset %s%C(yellow)%d%Creset'
+alias.logpstat log --topo-order --color --stat=180,150 --pretty='format: %Cgreen%h%Creset%Cblue by %aN, %ci%Creset  %s%Cred%d%Creset%n'
+alias.logpmerges log --topo-order --merges --decorate --pretty=format:'%Cred %h %Creset%Cgreen[%ai]%C(bold blue)[%aN]%Creset %s%C(yellow)%d%Creset'
+alias.logpgraphstat log --topo-order --color --stat=180,150 --pretty='format: %Cgreen%h%Creset%Cblue by %aN, %ci%Creset  %s%Cred%d%Creset%n' --graph
+alias.logpgraphoneliner log --topo-order --graph --color --all --pretty='format: %Cgreen%h%Creset %s%Cred%d%Creset%n'
+alias.logpr !fgitlogpr0() { git log --topo-order --graph --decorate --boundary ${1:-origin/master}... --pretty=format:'%Cred %h %Creset%Cgreen[%ai]%C(bold blue)[%aN]%Creset %s%C(yellow)%d%Creset'; }; fgitlogpr0
+alias.logprfull !fgitlogpr1() { git log --topo-order --decorate --boundary ${1:-origin/master}...; }; fgitlogpr1
+alias.logprpatch !fgitlogpr2() { git log --topo-order --decorate=full --no-merges --boundary ${1:-origin/master}... --patch; }; fgitlogpr2
+alias.logprstat !fgitlogpr3() { git log --topo-order --boundary ${1:-origin/master}... --stat --oneline; }; fgitlogpr3
+alias.logpstats !git shortlog -sne
+alias.logpstatscontrib !git log --format='%aN <%aE>' | awk '{arr[$0]++} END{for (i in arr){print arr[i], i;}}' | sort -rn | head
+alias.git-grep grep --break --heading --line-number
+alias.git-branch-list-by-date for-each-ref --sort='-committerdate' --format='%(committerdate:iso8601) %(authoremail) %(refname)'
+alias.git-branch-list branch --list --verbose
+alias.git-branch-list-all branch --all --verbose
+alias.showpretty show --pretty=full --stat
+alias.showpstat show --stat=180,150 --pretty=oneline
+alias.showpnameonly show --pretty=full --name-only
+alias.showponline show --pretty=oneline --name-only
+alias.scrumlog log --graph --pretty=format:'%h -%d %s %cr <%an>' --all
+alias.scrum !git scrumlog --since="$([ $(date +%w) -eq 1 ] && date -v-3d +%F || date -v-1d +%F) 00:00:00" --committer="`git config user.name`"
+alias.megascrum !for dir in $(find ~/thescore -name .git -exec dirname {} \;); do (cd "$dir" && git --no-pager scrum); done 2>/dev/null | $(git config --get core.pager)
+alias.churn !git --no-pager log --name-only --oneline | grep -v ' ' | sort | uniq -c | sort -nr | head
+alias.tagpbydate log --tags --simplify-by-decoration --pretty='format:%ai %d'
+alias.codereview-reset-to !fgit_codereview_resetto() { bash -c "git reset --soft $@ && git reset HEAD -- "; }; fgit_codereview_resetto
+alias.openunstaged !fgit_openunstaged() { $EDITOR_USING_CURRENT_PROJECT $(git add * --intent-to-add && git diff --diff-filter AMUX --name-only); }; fgit_openunstaged
+alias.openstaged !fgit_openstaged() { $EDITOR_USING_CURRENT_PROJECT $(git diff --diff-filter AM --name-only --cached); }; fgit_openstaged
+alias.opensince !fgit_opensince() { $EDITOR_USING_CURRENT_PROJECT $(git diff --diff-filter AMUX --name-only --cached $@); }; fgit_opensince
+alias.github-pulls !hub browse -- pulls/
+alias.github-mypulls !hub browse -- pulls/andxyz
+alias.github-open-pull-request !hub pull-request
+alias.github-open-pull-request-against-production-branch !hub pull-request -b production
+alias.hub-pulls !git github-pulls
+alias.hub-mypulls !git github-mypulls
+alias.hub-open-pull-request !git github-open-pull-request-against-production-branch
+alias.gopenpr !hub pull-request
+alias.gmypulls !hub browse -- pulls/andxyz
+alias.gpulls !hub browse -- pulls
+alias.delete-remote-branch push origin --delete
+alias.delete-local-branch branch -D
+alias.submodule-update-oneliner submodule update --init --recursive
+alias.diffd-icdiff difftool --tool=icdiff_diff
+alias.diffd-ks difftool --tool=kaleidoscope_diff
+alias.diffd-vim difftool --tool=use_vim_diff
+alias.diffd-mvim difftool --tool=use_mvim_diff
+alias.diffd-p4 difftool --tool=p4merge_diff
+alias.mergemkaleidoscope mergetool --tool=kaleidoscope_merge
+alias.ctags !.git/hooks/ctags
+alias.ggrep grep --break --heading --line-number
+alias.alias config --get-regexp ^alias\.
+alias.garbagecollect gc --aggressive --no-prune
+alias.confg config --global
+alias.confgl config --global --list
+alias.confge config --global --edit
+alias.confl config --list
+alias.confe config --edit
 ```
