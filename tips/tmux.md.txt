@@ -1,0 +1,9 @@
+
+https://thoughtbot.com/upcase/videos/tmux-introduction
+
+Nate
+https://github.com/nwjsmith/dotfiles/commits/master/tmux.conf
+
+Mar'yan
+https://github.com/gmarik/dotfiles/blob/master/.tmux.conf
+
