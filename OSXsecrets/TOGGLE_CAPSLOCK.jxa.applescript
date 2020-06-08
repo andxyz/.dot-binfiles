@@ -1,7 +1,7 @@
 // LOL caplock was permalocked, I had to name this script in all caps
-// use with:
+//   use with:
 //
-// osascript -l JavaScript ~/bin/OSXsecrets/TOGGLE_CAPSLOCK.jxa.applescript
+//  osascript -l JavaScript ~/bin/OSXsecrets/TOGGLE_CAPSLOCK.jxa.applescript
 
 ObjC.import("IOKit");
 ObjC.import("CoreServices");
