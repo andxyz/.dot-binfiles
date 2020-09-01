@@ -1,5 +1,3 @@
 # Leopard Dtrace stuff
-/usr/share/examples/DTTk
 
-# run git daemon
-git daemon --verbose --export-all --base-path=/Users/andxyz/Sites/
+/usr/share/examples/DTTk

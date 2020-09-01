@@ -4,3 +4,14 @@
 ### http://gilesbowkett.blogspot.ca/2009/06/find-your-ruby-gems-path.html
 
 ruby -r rubygems -e "p Gem.path"
+
+
+## find a gem dir
+
+rbenv-open-current-gems-dir.sh pg
+
+
+## find paths with core_ext
+
+find "$(gem environment gemdir)/gems" -iname '*core_ext*' | wc -l
+find "$(gem environment gemdir)/gems" -iname '*core_ext*'
