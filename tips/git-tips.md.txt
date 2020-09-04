@@ -1,35 +1,61 @@
 
+## run git daemon
+
+```shell
+git daemon --verbose --export-all --base-path=/Users/andxyz/Sites/
+```
+
+## list all my git aliases
+
+```
+git alias
+git alias | grep github
+```
+
+## interactive rebase
+
 ```shell
 git rebase -i HEAD~4
 git rebase -i
 git rebase --abort
 ```
 
+## git stash
+
 ```shell
 git stash "description"
 git stash apply
 ```
 
+## garbage collect
+
 ```shell
-git gc
+git gc --aggressive --no-prune
 ```
+
+## list branches
 
 ```shell
 git branch -l
 git branch-list.sh
 ```
 
+## checkout and track
+
 ```
 git checkout -b production origin/production
 ```
+
+## grepping for old code
 
 ```shell
 git rev-list HEAD...HEAD~100 | xargs -I{} git grep -h is_interesting_bool_true {} | cut -f2- -d':' | gsort | guniq | ghead -n100 | bat --language ruby
 ```
 
+## stats
+
 ```
 git log --all --numstat --pretty="%H" --author="Andrew Stevens" --since=1.year | awk 'NF==3 {plus+=$1; minus+=$2} NF==1 {total++} END {printf("lines added: +%d\nlines deleted: -%d\ntotal commits: %d\n", plus, minus, total)}'
-
 
 lines added: +2676
 lines deleted: -245960
@@ -38,7 +64,7 @@ total commits: 163
 ```
 
 
-
+## git aliases
 
 ```
 
