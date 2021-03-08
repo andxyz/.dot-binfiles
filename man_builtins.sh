@@ -24,7 +24,9 @@
 ### ```shell
 ### man zshbuiltins
 ### man zshall
-### man zshzle
+# $ man zsh*
+# zsh          zshbuiltins  zshcompctl   zshcompwid   zshexpn      zshmodules   zshparam     zshtcpsys    zshzle
+# zshall       zshcalsys    zshcompsys   zshcontrib   zshmisc      zshoptions   zshroadmap   zshzftpsys
 ### ```
 ###
 
