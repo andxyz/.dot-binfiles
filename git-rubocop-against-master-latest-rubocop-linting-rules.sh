@@ -11,4 +11,4 @@ cd "${HOME}"/code/rubocop_linting/
 set -x
 set -e
 
-bundle exec rubocop --display-cop-names --config "${HOME}"/code/rubocop_linting/.rubocop.yml --force-exclusion ${rubo_files}
+bundle exec rubocop --require rubocop-rspec --display-cop-names --config "${HOME}"/code/rubocop_linting/.rubocop.yml --force-exclusion ${rubo_files}
