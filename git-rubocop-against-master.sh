@@ -9,4 +9,4 @@ ggrep -Ei '.rb|.rake|.podspec|.jbuilder|Gemfile|Rakefile|Podfile|Thorfile|Fastfi
 echo ""
 echo ""
 
-bundle exec rubocop --display-cop-names --config .rubocop.yml --force-exclusion ${rubo_files}
+bundle exec rubocop --require rubocop-rspec --display-cop-names --config ./.rubocop.yml --force-exclusion ${rubo_files}
