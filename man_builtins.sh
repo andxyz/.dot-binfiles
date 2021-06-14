@@ -34,7 +34,7 @@
 ### jobs -dlp
 
 ### some odd snippets
-# grep -R -i '$FUNCTION' ~/code/_clone/bash
+# grep -R -i '$FUNCTION' ~/code/git/bash
 # bash -x -c 'trap -l'
 
 require 'bundler'
@@ -72,7 +72,7 @@ DEBUG_SHELL=''
 
 # for ARGV aka $* see http://ruby-doc.org/stdlib-2.3.1/libdoc/English/rdoc/English.html
 needle = "#{ARGV.fetch(0)}"
-list_of_reasonable_files_to_search_orig = %x{#{DEBUG_SHELL} find \$HOME/code/_clone/bash/builtins/\*.def -iname "*#{needle}*"}
+list_of_reasonable_files_to_search_orig = %x{#{DEBUG_SHELL} find \$HOME/code/git/bash/builtins/\*.def -iname "*#{needle}*"}
 list_of_reasonable_files_to_search = list_of_reasonable_files_to_search_orig.split(/\n/)
 
 awk_program = '/^\$BUILTIN/, /^\$END/'

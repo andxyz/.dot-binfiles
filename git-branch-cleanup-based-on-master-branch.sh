@@ -35,7 +35,7 @@ echo "### Cleaning squashed,merged branches '$(echo $merged_branches|xargs)'"
 echo ""
 echo ""
 for merged_branch in $merged_branches; do
-  echo "git branch -D ${merged_branch/\//}"
+  echo "git branch -D ${merged_branch/\// /}"
 done
 echo ""
 echo ""
@@ -43,10 +43,11 @@ echo "### Deleting remote branches '$(echo $remote_branches|xargs)'"
 echo ""
 echo ""
 for b in $remote_branches; do
-  # `${b/\// }` splits `origin/name` into `origin name`
+  # `${b/\// /}` splits `origin/name` into `origin name`
   # TODO: push can accept multiple names per origin
-  echo "git push --delete ${b/\//}"
+  echo "git push --delete ${b/origin\//origin }"
   echo "https://github.com/Wonolo/platform-core/tree/${b/origin\//}"
+  echo ""
 done
 echo ""
 echo ""
