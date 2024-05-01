@@ -47,10 +47,6 @@ gemfile(true, { ui: Bundler::UI::Silent.new }) do
   source 'https://rubygems.org'
   # ruby libs
   require 'logger'
-
-  # gems
-  gem 'posix-spawn', '~> 0.3.11'
-  # gem 'pry-byebug'
 end
 
 @log = Logger.new(STDOUT)
